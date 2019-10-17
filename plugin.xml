@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	id="vogo-cordova-plugin"
+	version="1.0.0">
+	<name>VogoPlugin</name>
+	<description>Interact with VOGO SDK</description>
+	<keywords>cordova plugin vogo sport</keywords>
+
+	<js-module src="www/vogoPlugin.js" name="vogoPlugin">
+		<clobbers target="window.vogoPlugin" />
+	</js-module>
+	<js-module src="www/Vogo.js" name="Vogo">
+		<clobbers target="window.Vogo" />
+	</js-module>
+
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="VogoPlugin" >
+				<param name="android-package" value="com.vogo.sdk.VogoPlugin"/>
+			</feature>
+		</config-file>
+
+		<source-file src="src/android/VogoPlugin.java" target-dir="src/com/vogo/sdk" />
+
+		<resource-file src="libs/android/playerlib.aar" target="libs/playerlib.aar" />
+		<resource-file src="libs/android/coreplayer.aar" target="libs/coreplayer.aar" />
+
+		<framework src="src/android/vogoPlugin.gradle" custom="true" type="gradleReference" />
+	</platform>
+
+
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="VogoPlugin">
+				<param name="ios-package" value="VogoPlugin" />
+			</feature>
+		</config-file>
+
+		<header-file src="src/ios/VogoPlugin.h" target-dir="playerLibPlugin"/>
+		<source-file src="src/ios/VogoPlugin.m" target-dir="playerLibPlugin"/>
+        
+        <resource-file src="libs/ios/VOGOPlayerUI.bundle"/>
+        
+        <framework src="MediaPlayer.framework" />
+		<framework src="UserNotifications.framework" />
+		<framework src="libiconv.tbd" />
+		<framework src="libresolv.9.tbd" />
+		<framework src="AssetsLibrary.framework" />
+		<framework src="QuartzCore.framework" />
+		<framework src="CoreVideo.framework" />
+		<framework src="CoreMedia.framework" />
+		<framework src="OpenGLES.framework" />
+		<framework src="CoreFoundation.framework" />
+		<framework src="AVFoundation.framework" />
+		<framework src="Foundation.framework" />
+		<framework src="SystemConfiguration.framework" />
+		<framework src="AudioToolbox.framework" />
+		<framework src="VideoToolbox.framework" />
+        <framework src="libs/ios/VOGOPlayerUI.framework" custom="true"/>
+
+		<config-file target="*-Info.plist" parent="NSAppTransportSecurity" mode="overwrite">
+			<dict>
+				<key>NSAllowsArbitraryLoads</key>
+				<true/>
+			</dict>
+		</config-file>
+
+
+		<config-file target="*-Info.plist" parent="UIBackgroundModes">
+			<array>
+				<string>audio</string>
+			</array>
+		</config-file>
+
+	    <config-file target="*-Info.plist" parent="CFBundleLocalizations">
+            <array>
+	            <string>fr</string>
+	            <string>en</string>
+	        </array>
+	    </config-file>
+
+		<preference name="PHOTOLIBRARY_USAGE_DESCRIPTION" default="This app needs read/write-access photo library access"/>
+		<config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
+			<string>$PHOTOLIBRARY_USAGE_DESCRIPTION</string>
+		</config-file>
+
+		<preference name="CAMERA_USAGE_DESCRIPTION" default="This app needs camera access"/>
+		<config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+			<string>$CAMERA_USAGE_DESCRIPTION</string>
+		</config-file>
+
+		<hook type="after_plugin_add" src="hooks/xcode-config.js" />
+		<hook type="after_platform_add" src="hooks/xcode-config.js" />
+
+	</platform>
+
+</plugin>

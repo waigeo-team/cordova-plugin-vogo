@@ -29,7 +29,6 @@
 		<framework src="src/android/vogoPlugin.gradle" custom="true" type="gradleReference" />
 	</platform>
 
-	<!--
 	<platform name="ios">
 		<config-file target="config.xml" parent="/*">
 			<feature name="VogoPlugin">
@@ -94,6 +93,5 @@
 		<hook type="after_platform_add" src="hooks/xcode-config.js" />
 
 	</platform>
-	-->
 
 </plugin>

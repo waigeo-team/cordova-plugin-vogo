@@ -1,0 +1,6 @@
+framework module VOGOPlayerCore {
+  umbrella header "VOGOPlayerCore.h"
+
+  export *
+  module * { export * }
+}

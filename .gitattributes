@@ -1,0 +1,2 @@
+libs/ios/VOGOPlayerUI.framework/VOGOPlayerUI filter=lfs diff=lfs merge=lfs -text
+libs/ios/VOGOPlayerCore.framework/VOGOPlayerCore filter=lfs diff=lfs merge=lfs -text

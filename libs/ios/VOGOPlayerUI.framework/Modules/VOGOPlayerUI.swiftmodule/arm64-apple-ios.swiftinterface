@@ -1,0 +1,248 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -module-name VOGOPlayerUI
+import CommonCrypto
+import Foundation
+import StoreKit
+import Swift
+import UIKit
+@_exported import VOGOPlayerUI
+extension String {
+  public var md5: Swift.String {
+    get
+  }
+}
+extension SKPaymentTransaction {
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+}
+@_hasMissingDesignatedInitializers public class ChannelController {
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class ColorUpdater : ObjectiveC.NSObject {
+  public var correntColorSet: VOGOPlayerUI.ColorUpdater.ViewModel?
+  public struct ViewModel : Swift.Equatable {
+    public static func == (a: VOGOPlayerUI.ColorUpdater.ViewModel, b: VOGOPlayerUI.ColorUpdater.ViewModel) -> Swift.Bool
+  }
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension UIFont {
+  public static func jbs_registerFont(withFilenameString filenameString: Swift.String, bundle: Foundation.Bundle)
+}
+@objc public protocol ThemeModifier {
+  @objc func pimpMyViews(viewsWithShadow: [UIKit.UIView]?, viewsWithBorder: [UIKit.UIView]?, roundedCorners: [UIKit.UIView]?, labelsWithFont: [UIKit.UILabel]?, textviewsWithFont: [UIKit.UITextField]?)
+}
+@_inheritsConvenienceInitializers @objc public class VogoTheme : ObjectiveC.NSObject, VOGOPlayerUI.ThemeModifier {
+  @objc override dynamic public init()
+  @objc public func pimpMyViews(viewsWithShadow: [UIKit.UIView]?, viewsWithBorder: [UIKit.UIView]?, roundedCorners: [UIKit.UIView]?, labelsWithFont: [UIKit.UILabel]?, textviewsWithFont: [UIKit.UITextField]?)
+  @objc deinit
+}
+extension SKProduct {
+  public var VOGODescription: Swift.String {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class Store : ObjectiveC.NSObject {
+  @objc public static let shared: VOGOPlayerUI.Store
+  @objc public var paymentObserver: VOGOPlayerUI.PaymentObserver
+  @objc public var themeController: VOGOPlayerUI.ThemeModifier
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension UIDevice {
+  public var modelName: Swift.String {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class VGCGUViewController : UIKit.UIViewController {
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc public static func CGUValidated() -> Swift.Bool
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+extension VGCGUViewController {
+  @objc public static func loadFromStoryboard(storyboard: UIKit.UIStoryboard) -> VOGOPlayerUI.VGCGUViewController
+}
+@_inheritsConvenienceInitializers @objc public class UIBundleHelper : ObjectiveC.NSObject {
+  @objc public static func bundle() -> Foundation.Bundle?
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_inheritsConvenienceInitializers @available(tvOS, unavailable)
+public class KeyboardLayoutConstraint : UIKit.NSLayoutConstraint {
+  @available(tvOS, unavailable)
+  @objc override dynamic public func awakeFromNib()
+  @objc deinit
+  @objc override dynamic public init()
+}
+public struct ChannelDisplayInfos {
+}
+@_hasMissingDesignatedInitializers public class InApp {
+  @objc deinit
+}
+@objc extension NSString {
+  @objc dynamic public func vogoLocalized(tableName: Swift.String? = "Localizable") -> Swift.String
+}
+@_inheritsConvenienceInitializers @objc public class PaymentObserver : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension PaymentObserver : StoreKit.SKRequestDelegate {
+  @objc dynamic public func requestDidFinish(_ request: StoreKit.SKRequest)
+  @objc dynamic public func request(_ request: StoreKit.SKRequest, didFailWithError error: Swift.Error)
+}
+extension PaymentObserver : StoreKit.SKProductsRequestDelegate {
+  @objc dynamic public func productsRequest(_ request: StoreKit.SKProductsRequest, didReceive response: StoreKit.SKProductsResponse)
+}
+extension PaymentObserver : StoreKit.SKPaymentTransactionObserver {
+  @objc dynamic public func paymentQueue(_ queue: StoreKit.SKPaymentQueue, updatedTransactions transactions: [StoreKit.SKPaymentTransaction])
+  @objc dynamic public func paymentQueue(_ queue: StoreKit.SKPaymentQueue, removedTransactions transactions: [StoreKit.SKPaymentTransaction])
+  @objc dynamic public func paymentQueue(_ queue: StoreKit.SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Swift.Error)
+  @objc dynamic public func paymentQueueRestoreCompletedTransactionsFinished(_ queue: StoreKit.SKPaymentQueue)
+  @objc dynamic public func paymentQueue(_ queue: StoreKit.SKPaymentQueue, updatedDownloads downloads: [StoreKit.SKDownload])
+  @objc dynamic public func paymentQueue(_ queue: StoreKit.SKPaymentQueue, shouldAddStorePayment payment: StoreKit.SKPayment, for product: StoreKit.SKProduct) -> Swift.Bool
+  @objc dynamic public func paymentQueueDidChangeStorefront(_ queue: StoreKit.SKPaymentQueue)
+}
+@_inheritsConvenienceInitializers @objc public class VGLoginViewController : UIKit.UIViewController {
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc public func tapOnBackground()
+  @objc public static func LoginValidated() -> Swift.Bool
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+extension VGLoginViewController {
+  @objc public static func loadFromStoryboard(storyboard: UIKit.UIStoryboard) -> VOGOPlayerUI.VGLoginViewController
+}
+extension VGLoginViewController : UIKit.UIPickerViewDelegate {
+}
+extension VGLoginViewController : UIKit.UIPickerViewDataSource {
+  @objc dynamic public func numberOfComponents(in pickerView: UIKit.UIPickerView) -> Swift.Int
+  @objc dynamic public func pickerView(_ pickerView: UIKit.UIPickerView, numberOfRowsInComponent component: Swift.Int) -> Swift.Int
+  @objc dynamic public func pickerView(_ pickerView: UIKit.UIPickerView, didSelectRow row: Swift.Int, inComponent component: Swift.Int)
+  @objc dynamic public func pickerView(_ pickerView: UIKit.UIPickerView, titleForRow row: Swift.Int, forComponent component: Swift.Int) -> Swift.String?
+}
+extension VGLoginViewController : UIKit.UITextFieldDelegate {
+  @objc dynamic public func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
+}
+extension VGLoginViewController : UIKit.UIGestureRecognizerDelegate {
+  @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+}
+@_hasMissingDesignatedInitializers public class Banners {
+  @objc deinit
+}
+extension Double {
+  public func rounded(toPlaces places: Swift.Int) -> Swift.Double
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class SwiftVGController : VOGOPlayerUI.VGController {
+  @objc override dynamic public var prefersHomeIndicatorAutoHidden: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @objc override dynamic public func updateDesyncLabel()
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+extension SwiftVGController {
+  @objc override dynamic public func player(_ player: VOGOPlayerCore.VGPlayer, eventType: VOGOPlayerCore.EventType, values: [Swift.AnyHashable : Any])
+}
+extension SwiftVGController : UIKit.UITableViewDataSource {
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+}
+extension SwiftVGController : UIKit.UITableViewDelegate {
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+}
+extension SwiftVGController : UIKit.UIGestureRecognizerDelegate {
+  @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+}
+@_hasMissingDesignatedInitializers @objc public class VGRootViewController : UIKit.UIViewController {
+  @objc public init(player: VOGOPlayerCore.VGPlayer, params: VOGOPlayerUI.VOGOParameters)
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public var prefersStatusBarHidden: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic public var supportedInterfaceOrientations: UIKit.UIInterfaceOrientationMask {
+    @objc get
+  }
+  @objc override dynamic public var childForHomeIndicatorAutoHidden: UIKit.UIViewController? {
+    @objc get
+  }
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension VGRootViewController : UIKit.UINavigationControllerDelegate {
+  @objc dynamic public func navigationControllerSupportedInterfaceOrientations(_ navigationController: UIKit.UINavigationController) -> UIKit.UIInterfaceOrientationMask
+}
+@_inheritsConvenienceInitializers @objc public class VOGOParameters : ObjectiveC.NSObject {
+  @objc public var hideCGU: Swift.Bool
+  @objc public var wIFIDefaultTextVisibility: Swift.Bool
+  @objc public var debugEnabled: Swift.Bool
+  @objc public var screenCaptureAllowed: Swift.Bool
+  @objc public var isStandalone: Swift.Bool
+  @objc public var withBackgroundAudio: Swift.Bool
+  @objc public var wifiDefaultText: Swift.String
+  @objc public var iOSMediaPlayerTitle: Swift.String?
+  @objc public var WIFIConnectingText: Swift.String
+  @objc public var primaryColor: UIKit.UIColor?
+  @objc public var secondaryColor: UIKit.UIColor?
+  @objc public var iOSMediaPlayerImage: UIKit.UIImage?
+  @objc public var mainLogo: UIKit.UIImage?
+  @objc public var backgroundImage: UIKit.UIImage?
+  @objc public var sponsort1Logo: UIKit.UIImage?
+  @objc public var sponsort2Logo: UIKit.UIImage?
+  @objc public var sponsort3Logo: UIKit.UIImage?
+  @objc public var sponsort4Logo: UIKit.UIImage?
+  @objc public var eventLogo: UIKit.UIImage?
+  @objc public var mainLogoLocked: Swift.Bool
+  @objc public var logo1Locked: Swift.Bool
+  @objc public var logo2Locked: Swift.Bool
+  @objc public var logo3Locked: Swift.Bool
+  @objc public var logo4Locked: Swift.Bool
+  @objc public var eventLogoLocked: Swift.Bool
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension UIImage {
+  @objc public static func backgroundImage() -> UIKit.UIImage?
+  @objc public static func header() -> UIKit.UIImage?
+  @objc public static func logo() -> UIKit.UIImage?
+  @objc public static func camera() -> UIKit.UIImage?
+  @objc public static func file() -> UIKit.UIImage?
+  @objc public static func moins15() -> UIKit.UIImage?
+  @objc public static func moins15Background() -> UIKit.UIImage?
+  @objc public static func plus15() -> UIKit.UIImage?
+  @objc public static func markerPrevious() -> UIKit.UIImage?
+  @objc public static func markerNext() -> UIKit.UIImage?
+  @objc public static func plus15Background() -> UIKit.UIImage?
+  @objc public static func play() -> UIKit.UIImage?
+  @objc public static func pause() -> UIKit.UIImage?
+  @objc public static func playSlow() -> UIKit.UIImage?
+  @objc public static func recStart() -> UIKit.UIImage?
+  @objc public static func recStop() -> UIKit.UIImage?
+  @objc public static func controlBackground() -> UIKit.UIImage?
+  @objc public static func close() -> UIKit.UIImage?
+  @objc public static func fullScreen() -> UIKit.UIImage?
+  @objc public static func lock() -> UIKit.UIImage?
+  @objc public static func triangle() -> UIKit.UIImage?
+  @objc public static func hourglass() -> UIKit.UIImage?
+}
+@objc @_hasMissingDesignatedInitializers public class ColorController : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc extension UIStoryboard {
+  @objc public static func vogoStoryboard(for aClass: Swift.AnyClass) -> UIKit.UIStoryboard
+}
+extension VOGOPlayerUI.ColorUpdater : ObjectiveC.NSObjectProtocol {}
+extension VOGOPlayerUI.VGCGUViewController : ObjectiveC.NSObjectProtocol {}
+extension VOGOPlayerUI.ColorController : ObjectiveC.NSObjectProtocol {}

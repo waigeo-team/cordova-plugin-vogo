@@ -6,9 +6,10 @@
 //  Copyright © 2018 VOGO. All rights reserved.
 //
 @import UIKit;
-
 @class VGPlayer;
 @class VGChannel;
+@class InAppPurchaseHistory;
+@class VGMarker;
 
 /*!
  * @brief The possible states the Player can be in :
@@ -285,7 +286,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return the VOGO Player instance.
  */
-- (nullable instancetype) init;
+- (instancetype) init;
 
 /*!
  @brief Create a new instance of the VOGO Player with the specified listener.
@@ -386,6 +387,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (long long) bufferMinAbsoluteTimestamp;
 
 /*!
+ @brief Return the epoch timestamp of the current position
+ */
+- (long long) currentPosition;
+
+/*!
  @brief Return YES if the current server configuration allows the Player to record the videos to a file.
  */
 @property(assign, nonatomic, readonly) BOOL canRecord;
@@ -413,7 +419,6 @@ NS_ASSUME_NONNULL_BEGIN
  * @param ipAddress the IP to listen for the VOGO Server configuration.
  */
 - (void) setListeningIP:(NSString*) ipAddress;
-
 /*!
  * @brief Return the list of available, buffered Channels.
  *
@@ -443,13 +448,32 @@ NS_ASSUME_NONNULL_BEGIN
  @see VGChannel
  */
 - (nullable VGChannel*) currentChannel;
+ 
+/*!
+@brief Flag a channel as paid when the transaction is successfull
+*/
+- (void)setPaidChannel:(VGChannel*) channel isPaid: (BOOL) paid;
+
+/*!
+@brief Local history of all saved purchases
+*/
+@property (nonatomic, strong) InAppPurchaseHistory*inAppData;
+
+/*!
+@brief Dictionnary with all product identifiers with their tiers ID
+*/
+@property (nonatomic, retain, nullable)  NSDictionary<NSNumber *, NSString *> * tiersMap;
+/*!
+@brief Get bundle identifier for an tiers ID
+*/
+- (NSString* _Nullable ) getIdentifierFor:(NSInteger)tiers;
 
 /*!
  @brief Return dynamic, technical information about the Player.
  
  @return the information. Contains line-breaks.
  */
-- (NSString*) debugInfos;
+- (nullable NSString*) debugInfos;
 
 /*!
  @brief Return the current main video source size (width and height).
@@ -467,7 +491,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return NSDictionary containing current player configuration.
  */
-- (NSDictionary*) configuration;
+- (nullable NSDictionary* ) configuration;
 
 /*!
  * @brief Associate the Player with a VOGO Events project id, so that the Player can
@@ -477,7 +501,6 @@ NS_ASSUME_NONNULL_BEGIN
  * Contact VOGO technical team to get a registered project ID.
  */
 @property(assign, nonatomic) NSUInteger vogoEventsProject;
-
 /*!
  @brief Sets the path to a valid SSL certificate used for secured requests.
  Default path is AppBundle/ssl/certs/ca-certificates.crt
@@ -501,6 +524,40 @@ NS_ASSUME_NONNULL_BEGIN
  @return YES if the scan could have been launched.
  */
 + (BOOL) scan:(NSInteger) timeout completion:(void (^)(BOOL hasVOGO))completion;
+
+/*!
+@brief Return the last player configuration differential.
+
+@see VGDefines.h for key/value properties.
+
+@return NSDictionary containing player configuration differential.
+*/
+- (nullable NSDictionary*) configurationDiff;
+
+- (void) setPlayerShareMarkers:(BOOL)share;
+
+/*!
+@brief Return the current list of markers
+
+@return NSArray of VGMarker
+*/
+- (NSArray<VGMarker*>*) getMarkers;
+
+/*!
+@brief Go to next or previous marker
+
+@param forward boolean indicating if the player must go to next marker (true) or previous marker (false)
+*/
+- (void) goToNextMarker:(BOOL)forward
+NS_SWIFT_NAME(goToNextMarker(forward:));
+
+/*!
+@brief Go to a specific marker identified by its position
+
+@param pos position of the marker expressed in epoch UTC milliseconds.
+*/
+- (void) goToMarkerByPos:(long long)pos
+NS_SWIFT_NAME(goToMarkerByPos(pos:));
 
 @end
 

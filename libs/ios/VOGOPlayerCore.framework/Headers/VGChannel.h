@@ -16,9 +16,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(copy, nonatomic, readonly) NSString* title;
 //
 @property(assign, nonatomic, readonly) BOOL isFile;
-
 //
-- (nullable instancetype) init NS_UNAVAILABLE;
+@property(assign, nonatomic, readonly) BOOL isPaid;
+//
+@property(assign, nonatomic, readonly) BOOL isPaying;
+//
+@property(assign, nonatomic, readonly) NSInteger payTier;
+//
+@property(assign, nonatomic, readonly) BOOL isBuffered;
+
+- (instancetype) init NS_UNAVAILABLE;
+
+
+//+ (instancetype)initMOCKChannel;
 
 @end
 

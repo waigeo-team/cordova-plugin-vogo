@@ -1,0 +1,80 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name VOGOPlayerCore
+import Foundation
+import StoreKit
+import Swift
+import UIKit
+@_exported import VOGOPlayerCore
+@_inheritsConvenienceInitializers @objc public class InAppPurchaseHistory : ObjectiveC.NSObject, Swift.Codable {
+  public var history: [VOGOPlayerCore.InAppPurchaseSavedData]
+  @objc public func add(channelID: Swift.Int, isPurchased: Swift.Bool, purchaseDate: Foundation.Date)
+  @objc public func saveToDisk()
+  @objc public static func getFromDisk() -> VOGOPlayerCore.InAppPurchaseHistory
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@_hasMissingDesignatedInitializers @objc public class InAppPurchaseSavedData : ObjectiveC.NSObject, Swift.Codable {
+  public var channelID: Swift.Int
+  public var isPurchased: Swift.Bool
+  public var purchaseDate: Foundation.Date
+  public var expirationDate: Foundation.Date?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc extension VGPlayer {
+  @objc dynamic public func removeExpiredInAppPurchases()
+  @objc dynamic public func saveItemLocaly(transation: StoreKit.SKPaymentTransaction?, channel: VOGOPlayerCore.VGChannel)
+  @objc dynamic public func channelIsAlreadyPurchased(channel: VOGOPlayerCore.VGChannel) -> Swift.Bool
+}
+@objc @objcMembers public class VGMarker : ObjectiveC.NSObject {
+  @objc final public let pos: Swift.Int64
+  @objc final public let color: Swift.Int
+  @objc final public let name: Swift.String
+  @objc final public let type: Swift.Int
+  @objc final public let deleted: Swift.Bool
+  @objc public init(dictionary: Swift.Dictionary<Swift.String, Any>)
+  @objc public init(pos: Swift.Int64, color: Swift.Int, name: Swift.String, type: Swift.Int, deleted: Swift.Bool)
+  @objc deinit
+  @objc override dynamic public init()
+}
+public enum VGChannelBuyReponse : Swift.Int {
+  case success
+  case inprogress
+  case failed
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension VGPlayer {
+  public func postData(data: VOGOPlayerCore.DataInAppToSend, username: Swift.String, password: Swift.String, urlstring: Swift.String, completion: @escaping (Swift.Int, Swift.Bool) -> ())
+  public func sendInAppData()
+  public func retreiveBuyableGoods(channel: VOGOPlayerCore.VGChannel?, completion: @escaping (StoreKit.SKProduct?) -> Swift.Void)
+  public func payItem(channel: VOGOPlayerCore.VGChannel, product: StoreKit.SKProduct?, completion: @escaping (VOGOPlayerCore.VGChannelBuyReponse, StoreKit.SKPaymentTransaction?) -> Swift.Void)
+}
+public struct DataInAppToSend : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension VGPlayer : StoreKit.SKPaymentTransactionObserver {
+  @objc dynamic public func paymentQueue(_ queue: StoreKit.SKPaymentQueue, updatedTransactions transactions: [StoreKit.SKPaymentTransaction])
+  @objc dynamic public func paymentQueue(_ queue: StoreKit.SKPaymentQueue, removedTransactions transactions: [StoreKit.SKPaymentTransaction])
+  @objc dynamic public func paymentQueue(_ queue: StoreKit.SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Swift.Error)
+  @objc dynamic public func paymentQueueRestoreCompletedTransactionsFinished(_ queue: StoreKit.SKPaymentQueue)
+  @objc dynamic public func paymentQueue(_ queue: StoreKit.SKPaymentQueue, updatedDownloads downloads: [StoreKit.SKDownload])
+  @objc dynamic public func paymentQueue(_ queue: StoreKit.SKPaymentQueue, shouldAddStorePayment payment: StoreKit.SKPayment, for product: StoreKit.SKProduct) -> Swift.Bool
+  @objc dynamic public func paymentQueueDidChangeStorefront(_ queue: StoreKit.SKPaymentQueue)
+}
+extension VGPlayer : StoreKit.SKRequestDelegate {
+  @objc dynamic public func requestDidFinish(_ request: StoreKit.SKRequest)
+  @objc dynamic public func request(_ request: StoreKit.SKRequest, didFailWithError error: Swift.Error)
+}
+extension VGPlayer : StoreKit.SKProductsRequestDelegate {
+  @objc dynamic public func productsRequest(_ request: StoreKit.SKProductsRequest, didReceive response: StoreKit.SKProductsResponse)
+}

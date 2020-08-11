@@ -22,6 +22,11 @@ extern NSString* const kImagePartner1;			// NSString containing the Partner1 Log
 extern NSString* const kImagePartner2;			// NSString containing the Partner2 Logo file name. this value can be empty. Use VOGO Player resourcesFolder property to get the image full path.
 extern NSString* const kImagePartner3;			// NSString containing the Partner3 Logo file name. this value can be empty. Use VOGO Player resourcesFolder property to get the image full path.
 extern NSString* const kImagePartner4;			// NSString containing the Partner4 Logo file name. this value can be empty. Use VOGO Player resourcesFolder property to get the image full path.
+extern NSString* const kUrlPartner1;            // NSString containing the URL associated to Partner1 logo. this value can be empty.
+extern NSString* const kUrlPartner2;            // NSString containing the URL associated to Partner2 logo. this value can be empty.
+extern NSString* const kUrlPartner3;            // NSString containing the URL associated to Partner3 logo. this value can be empty.
+extern NSString* const kUrlPartner4;            // NSString containing the URL associated to Partner4 logo. this value can be empty.
+
 // ConfigChanged, ContentChanged : Application colors dictionary keys
 extern NSString* const kColorButtonNormal;		// NSNumber with long value. this long value will be the representation of 0xRRBBGG
 extern NSString* const kColorButtonSelected;	// NSNumber with long value. this long value will be the representation of 0xRRBBGG
@@ -35,6 +40,7 @@ extern NSString* const kShareHashtag;           // NSString.
 extern NSString* const kFullScreen;             // NSNumber with BOOL value.
 extern NSString* const kZeroStreamsText;        // NSString.
 extern NSString* const kWithScreenCapture;      // NSNumber with BOOL value.
+extern NSString* const kMarkers;                // Array of Markers
 //
 // Event data keys
 extern NSString* const kAddedChannels; // Array of integers

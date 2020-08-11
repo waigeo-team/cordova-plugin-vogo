@@ -7,12 +7,16 @@
 //
 #import <UIKit/UIKit.h>
 
+
 #define kVOGO_NOTIFICATION_SHARE_CLIP          @"VOGO_notification_share_clip"
 #define kVOGO_NOTIFICATION_SHARE_CLIP_FILEPATH @"VOGO_notification_share_clip_filepath"
 #define kVOGO_NOTIFICATION_SHARE_CLIP_HASHTAG  @"VOGO_notification_share_clip_hashtag"
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+
+@class VGController;
 @interface VGPlayerLib : UIResponder
 {}
 
@@ -55,13 +59,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (void) setDefaultSponsor2:(UIImage *)image;
 - (void) setDefaultSponsor3:(UIImage *)image;
 - (void) setDefaultSponsor4:(UIImage *)image;
-- (void) setDefaultSponsor5:(UIImage *)image;
 - (void) setDefaultVideo:(NSString *)url;
 
 - (void)setConnectingText:(NSString *)connectingText;
 //
 - (void) setMediaPlayerInfo:(NSString*) title withImage:(nullable UIImage*) image;
 - (void) setBackgroundNotification:(NSString*) title withMessage:(NSString*) message;
+
+- (void) setProductTiers:(NSDictionary<NSNumber *, NSString *> *) dic;
+- (NSString* _Nullable ) getIdentifierFor:(NSInteger)tiers;
+
 
 /*
  Alias to hideCGU:YES
@@ -98,6 +105,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) BOOL withBackgroundAudio;
 
+/*
+Return current values for banners and colors
+*/
+@property(nonatomic, retain)  NSDictionary* currentImagesAndColorsValues;
+
+/*
+ If YES, a notification will be showed when the player is in background.
+ Default: YES
+ */
+@property (nonatomic, assign) BOOL showBackgroundNotification;
 
 @end
 

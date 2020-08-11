@@ -18,3 +18,4 @@ FOUNDATION_EXPORT const unsigned char VOGOPlayerCoreVersionString[];
 #import <VOGOPlayerCore/VGChannel.h>
 #import <VOGOPlayerCore/VGDefines.h>
 #import <VOGOPlayerCore/VGEaglUIView.h>
+#import <VOGOPlayerCore/VGCoreToolkit.h>

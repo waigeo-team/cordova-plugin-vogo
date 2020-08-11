@@ -4,3 +4,8 @@ framework module VOGOPlayerUI {
   export *
   module * { export * }
 }
+
+module VOGOPlayerUI.Swift {
+    header "VOGOPlayerUI-Swift.h"
+    requires objc
+}

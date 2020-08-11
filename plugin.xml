@@ -54,7 +54,8 @@
 		<framework src="SystemConfiguration.framework" />
 		<framework src="AudioToolbox.framework" />
 		<framework src="VideoToolbox.framework" />
-        <framework src="libs/ios/VOGOPlayerUI.framework" custom="true"/>
+		<framework src="libs/ios/VOGOPlayerCore.framework" custom="true" />
+        <framework src="libs/ios/VOGOPlayerUI.framework" custom="true" />
 
 		<config-file target="*-Info.plist" parent="NSAppTransportSecurity" mode="overwrite">
 			<dict>

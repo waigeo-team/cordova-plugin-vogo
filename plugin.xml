@@ -38,9 +38,7 @@
 
 		<header-file src="src/ios/VogoPlugin.h" target-dir="playerLibPlugin"/>
 		<source-file src="src/ios/VogoPlugin.m" target-dir="playerLibPlugin"/>
-        
-        <resource-file src="libs/ios/VOGOPlayerUI.bundle"/>
-        
+             
         <framework src="MediaPlayer.framework" />
 		<framework src="UserNotifications.framework" />
 		<framework src="libiconv.tbd" />

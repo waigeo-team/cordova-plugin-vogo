@@ -70,7 +70,7 @@ NSString *const JSON_LISTENING_IP = @"JSON_LISTENING_IP";
     if([options objectForKey:SPONSOR2]) [vgInstance setDefaultSponsor2:[UIImage imageNamed:[options objectForKey:SPONSOR2]]];
     if([options objectForKey:SPONSOR3]) [vgInstance setDefaultSponsor3:[UIImage imageNamed:[options objectForKey:SPONSOR3]]];
     if([options objectForKey:SPONSOR4]) [vgInstance setDefaultSponsor4:[UIImage imageNamed:[options objectForKey:SPONSOR4]]];
-    //if([options objectForKey:SPONSOR5]) [vgInstance setDefaultSponsor5:[UIImage imageNamed:[options objectForKey:SPONSOR5]]];
+    if([options objectForKey:SPONSOR5]) [vgInstance setEventImage:[UIImage imageNamed:[options objectForKey:SPONSOR5]]];
     if([options objectForKey:MAIN_LOGO]) [vgInstance setDefaultMainLogo:[UIImage imageNamed:[options objectForKey:MAIN_LOGO]]];
     if([options objectForKey:PRIMARY_COLOR]) [vgInstance setDefaultPrimaryUIColor:[self rgbHexStringToColor:[options objectForKey:PRIMARY_COLOR]]];
 

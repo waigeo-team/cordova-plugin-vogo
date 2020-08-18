@@ -7,9 +7,7 @@
 Get the SDK for iOS and Android beforehand, then put them in their respective directory in libs/ios or libs/android.
 Once done, you can type the following command in your cordova project to add the plugin :
 
-> cordova plugin add `path/to/plugin/folder`
-
-For iOS, additional steps are required to configure your project, while in version *4.50.6* you will have to copy manually the VOGOPlayerCore.framework next to the VOGOPlayerUI.framework in `ios/CordovaVogoTest/Plugins/vogo-cordova-plugin/` of the ios platform.
+> cordova plugin add  `path/to/plugin/folder`
 
 *Beware that any image ressources that you may want to use must be placed in the respective ressources directory of Android (res/drawable) and iOS (Images.xcassets via XCode)*
 

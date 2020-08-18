@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	id="vogo-cordova-plugin"
-	version="1.0.0">
+	version="1.0.1">
 	<name>VogoPlugin</name>
 	<description>Interact with VOGO SDK</description>
 	<keywords>cordova plugin vogo sport</keywords>
@@ -54,8 +54,8 @@
 		<framework src="SystemConfiguration.framework" />
 		<framework src="AudioToolbox.framework" />
 		<framework src="VideoToolbox.framework" />
-		<framework src="libs/ios/VOGOPlayerCore.framework" custom="true" />
-        <framework src="libs/ios/VOGOPlayerUI.framework" custom="true" />
+		<framework src="libs/ios/VOGOPlayerCore.framework" custom="true" embed="true" />
+        <framework src="libs/ios/VOGOPlayerUI.framework" custom="true" embed="true" />
 
 		<config-file target="*-Info.plist" parent="NSAppTransportSecurity" mode="overwrite">
 			<dict>

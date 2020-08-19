@@ -20,7 +20,7 @@ module.exports = function(context) {
   //are handling pbxproj file.
   xcodeProj.parseSync();
   xcodeProj.updateBuildProperty('ENABLE_BITCODE', 'NO');
-	xcodeProj.updateBuildProperty('OTHER_LDFLAGS', ['\'-ObjC\'', '\'-lresolv\'', '\'-lstdc++\'']);
+	xcodeProj.updateBuildProperty('OTHER_LDFLAGS', ['\'$(inherited)\'', '\'-ObjC\'', '\'-lresolv\'', '\'-lstdc++\'']);
   fs.writeFileSync(pbxPath, xcodeProj.writeSync());
 
 	console.log("====Vogo plugin setting up xcode params===");
